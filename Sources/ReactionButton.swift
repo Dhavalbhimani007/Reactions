@@ -83,7 +83,6 @@ public final class ReactionButton: UIReactionControl {
     addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(ReactionButton.longPressAction)))
 
     addSubview(iconImageView)
-    addSubview(titleLabel)
   }
 
   private func setupReactionSelect(old: ReactionSelector?) {
