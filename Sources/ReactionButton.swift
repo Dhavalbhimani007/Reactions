@@ -81,6 +81,8 @@ public final class ReactionButton: UIReactionControl {
   override func setup() {
     addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(ReactionButton.tapAction)))
     addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(ReactionButton.longPressAction)))
+    
+    iconImageView.tintColor = UIColor(red: 0.29, green: 0.54, blue: 0.95, alpha: 1)
 
     addSubview(iconImageView)
   }
@@ -104,6 +106,7 @@ public final class ReactionButton: UIReactionControl {
 
   override func update() {
     iconImageView.image = reaction.alternativeIcon ?? reaction.icon
+    iconImageView.tintColor = UIColor(red: 0.29, green: 0.54, blue: 0.95, alpha: 1)
     titleLabel.font     = config.font
     titleLabel.text     = reaction.title
 
@@ -133,7 +136,7 @@ public final class ReactionButton: UIReactionControl {
     titleLabel.frame    = titleFrame
 
     UIView.transition(with: titleLabel, duration: 0.15, options: .transitionCrossDissolve, animations: { [unowned self] in
-      self.iconImageView.tintColor = self.isSelected ? self.reaction.color : self.config.neutralTintColor
+      self.iconImageView.tintColor = self.reaction.color  // Updated image tint color
       self.titleLabel.textColor    = self.isSelected ? self.reaction.color : self.config.neutralTintColor
       }, completion: nil)
   }
