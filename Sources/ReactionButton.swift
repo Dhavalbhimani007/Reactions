@@ -106,7 +106,6 @@ public final class ReactionButton: UIReactionControl {
 
   override func update() {
     iconImageView.image = reaction.alternativeIcon ?? reaction.icon
-    iconImageView.tintColor = UIColor(red: 0.29, green: 0.54, blue: 0.95, alpha: 1)
     titleLabel.font     = config.font
     titleLabel.text     = reaction.title
 
@@ -147,14 +146,7 @@ public final class ReactionButton: UIReactionControl {
     isSelected = !isSelected
 
     if isSelected {
-      UIView.animateKeyframes(withDuration: 0.3, delay: 0, options: .calculationModeCubic, animations: { [weak self] in
-        UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5, animations: {
-          self?.iconImageView.transform = CGAffineTransform(scaleX: 1.8, y: 1.8)
-        })
-        UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5, animations: {
-          self?.iconImageView.transform = .identity
-        })
-        }, completion: nil)
+        // Removed Popup animation on click oof selected reaction.
     }
 
     sendActions(for: .touchUpInside)
