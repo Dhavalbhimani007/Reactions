@@ -62,7 +62,7 @@ public final class ReactionSelectorConfig: Configurable {
   // MARK: - Convenient Methods
 
   // The default icon size
-  let defaultIconSize: CGFloat = 50
+  let defaultIconSize: CGFloat = 100
 
   /// Returns the icon size either in normal or highlighted mode
   final func computedIconSize(highlighted isHighlighted: Bool) -> CGFloat {
